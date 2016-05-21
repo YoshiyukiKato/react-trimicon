@@ -37,6 +37,10 @@ module.exports = {
 
     devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
 
+    devServer: {
+      contentBase: "./public",
+    },
+
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin({ 'process.env.NODE_ENV': `"${process.env.NODE_ENV || (DEBUG ? 'development' : 'production')}"` }),
