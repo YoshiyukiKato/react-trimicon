@@ -1,2 +1,2 @@
-import "./build/trimicon" as trimicon;
-export default trimicon;
+const dist = require("./dist");
+module.exports = dist;

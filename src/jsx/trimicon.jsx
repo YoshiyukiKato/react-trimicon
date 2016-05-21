@@ -1,5 +1,6 @@
 import React from "react";
-import closeIconSrc from "file!../images/close_icon.svg";
+import closeIconSrc from "../images/close_icon.svg";
+//import closeIconSrc from "file!../images/close_icon.svg";
 
 const Editor = React.createClass({
   propTypes: {

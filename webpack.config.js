@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const DEBUG = !process.argv.includes('--release');
 const VERBOSE = process.argv.includes('--verbose');
 
-module.exports = {
+const baseConfig = {
     cache: DEBUG,
 
     debug: DEBUG,
@@ -21,25 +21,7 @@ module.exports = {
         cachedAssets: VERBOSE,
     },
 
-    entry: {
-        trimicon: ["./src/jsx/trimicon.jsx", "./src/images/close_icon.svg", "./src/sass/trimicon.scss"],
-        app: ["./src/sass/trimicon.scss", "./src/images/close_icon.svg", "./src/jsx/app.jsx"],
-    },
-
-    output: {
-        publicPath: '/public',
-        sourcePrefix: '',
-        path: path.join(__dirname, 'build'),
-        filename: '[name].js',
-    },
-
-    target: 'web',
-
     devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
-
-    devServer: {
-      contentBase: "./public",
-    },
 
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
@@ -65,3 +47,26 @@ module.exports = {
     },
 };
 
+const distConfig = Object.assign({ 
+  entry: {
+    index: ["./src/sass/trimicon.scss",  "./src/jsx/app.jsx"],
+  },
+
+  output: {
+    publicPath: '/dist',
+    sourcePrefix: '',
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
+  },
+
+  target: 'web',
+
+  devServer: {
+    contentBase: "dist"
+  },
+
+
+}, baseConfig);
+
+
+module.exports = [distConfig];
