@@ -1,0 +1,119 @@
+//variables for common styles
+$border: 1px solid rgba(200, 200, 200, 0.5);
+$border-radius: 5px;
+$box-shadow: 0px 0px 3px rgba(200, 200, 200, 0.5);
+
+*{
+  margin:0;
+  padding:0;
+  font-size:16px;
+}
+
+.trimicon-button{
+  height: 30px;
+  min-width: 125px;    
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: $border-radius;
+  background-color: lightgray;
+  border: solid 1px darkgray;
+  color: black;
+  &:hover{
+    background-color: darkgray;
+    cursor: pointer;
+  }
+  &:disabled{
+    background-color: gray;
+    border: solid 1px dimgray;
+    color: dimgray;
+    cursor: default;
+  }
+}
+
+.trimicon-editor{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(225, 225, 225, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.3s,  opacity 0.3s;
+
+  &.open{
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+.trimicon-editor-area{
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: $border-radius;
+  background-color: whitesmoke;
+  box-shadow: $box-shadow;
+  border: $border;
+  
+  .trimicon-size-controller, .trimicon-action-panel{
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .trimicon-trimer{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+}
+
+.trimicon-size-controller{
+  border-bottom: $border;
+  input[type="number"]{
+    width: 60px;
+    text-align: right;
+  }
+}
+
+.trimicon-trimer{
+  position: relative;
+  img, canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.trimicon-action-panel{
+  border-top: $border;
+}
+
+.trimicon-close-editor{
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  box-shadow: $box-shadow;
+  border: $border;
+
+  img{
+    width: 100%;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    &:hover{
+      opacity: 1.0;
+    }
+  }
+}  
+
