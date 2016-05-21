@@ -57,3 +57,10 @@ ReactDOM.render(
 ##props
 ###onSubmit(dataURL)
 A callback function when a user finished editing image by clicking `Done` button. This function will receive the result(square icon) as dataURL.
+
+#TODO
+* improve zoom in/out
+  * add slider
+  * keep center of image
+* add rotate function
+* add rgb-filter function
