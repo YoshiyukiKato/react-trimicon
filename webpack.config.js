@@ -36,15 +36,29 @@ const baseConfig = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
-
+  
   module: {
     loaders: [
       { test: /\.jsx?$/, include: [path.resolve(__dirname, 'src/jsx')], loader: 'babel' },
       { test: /\.scss$/, loaders: ["style", "css", "sass"], include: [path.resolve(__dirname, 'src/sass')]},
-      { test: /\.svg$/, loader: 'file', include: [path.resolve(__dirname, 'src/images')] }
+      { test: /\.svg$/, loader: 'svg-inline', include: [path.resolve(__dirname, 'src/images')] }
     ],
-
   },
+
+};
+
+const distConfig = Object.assign({
+  entry: {
+    index: ["./src/sass/trimicon.scss",  "./src/jsx/index.jsx"],
+  },
+ 
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
+    libraryTarget: 'umd'
+  },
+
+  target: 'web',
 
   externals: [
     {
@@ -57,22 +71,6 @@ const baseConfig = {
       "react-dom": "ReactDOM"
     }
   ]
-
-};
-
-const distConfig = Object.assign({
-  entry: {
-    index: ["./src/sass/trimicon.scss",  "./src/jsx/index.jsx"],
-  },
-
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-    libraryTarget: 'umd'
-  },
-
-  target: 'web',
-
 }, baseConfig);
 
 const publicConfig = Object.assign({

@@ -1,6 +1,6 @@
 import React from "react";
-import closeIconSrc from "../images/close_icon.svg";
-//import closeIconSrc from "file!../images/close_icon.svg";
+import InlineSVG from "svg-inline-react";
+import closeIconSrc from "../images/close_icon.svg"
 
 const Editor = React.createClass({
   propTypes: {
@@ -44,7 +44,7 @@ const Editor = React.createClass({
       <div className={"trimicon-editor" + (this.state.isOpen ? " open" : "")}>
         <div className="trimicon-editor-area"> 
           <div className="trimicon-close-editor" onClick={this.close}>
-            <img src={closeIconSrc}/>
+            <InlineSVG src={closeIconSrc}/>
           </div>
           <div className="trimicon-size-controller">
             <span>{this.props.caption.zoomRatio} : </span>
