@@ -107,10 +107,18 @@ const Editor = React.createClass({
   },
 
   changeSize: function(evt){
-    let size = evt.target.value * 1;
-    if(size > 0){
+    //change image size with keeping center
+    let currentSize = this.state.imageSize;
+    let nextSize = evt.target.value * 1;
+    let currentLeft = this.state.imageLeft;
+    let currentTop = this.state.imageTop;
+    let nextLeft = (currentLeft - 250) * (nextSize / currentSize) + 250;
+    let nextTop = (currentTop - 200) * (nextSize / currentSize) + 200;
+    if(nextSize > 0){
       this.setState({ 
-        imageSize: size
+        imageSize: nextSize,
+        imageTop: nextTop,
+        imageLeft: nextLeft
       });
     }
   },
@@ -130,7 +138,22 @@ const Editor = React.createClass({
 
   open: function(evt){
     let dataURL = evt.target.result;
-    this.setState({ imageSrc: dataURL, imageSize: 100, imageTop:0, imageLeft:0, isOpen: true });
+    let img = new Image();
+    img.src = dataURL;
+    
+    let imageWidth = img.naturalWidth > 1.25 * img.naturalHeight ? 1 : img.naturalWidth / 1.25 * img.naturalHeight;
+    let imageHeight = img.naturalWidth < 1.25 * img.naturalHeight ? 1 : 1.25 * img.naturalHeight / img.naturalWidth;
+    let imageTop = (1 - imageHeight) / 2;
+    let imageLeft = (1 - imageWidth) / 2;
+
+    //TODO: arrange unit of the values of an image: imageWidth, imageHeight, imageTop, imageLeft
+
+    this.setState({ 
+      imageSrc: dataURL,           
+      imageSize: imageWidth * 100,
+      imageTop: imageTop * 400, 
+      imageLeft: imageLeft * 500, 
+      isOpen: true });
   },
 
   close: function(){

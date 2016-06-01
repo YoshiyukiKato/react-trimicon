@@ -9,7 +9,7 @@ module.exports = function (config) {
     
     files: [
       //'tests.webpack.js' //just load this file
-      "tests/*_spec.js"
+      "tests/*_spec.js",
     ],
     
     plugins: [
@@ -34,10 +34,8 @@ module.exports = function (config) {
 
       module: {
         loaders: [
-          { test: /\.js$|\.jsx$/, loader: 'babel', include: [path.resolve(__dirname, 'src/jsx'), path.resolve(__dirname, 'tests')] },
+          { test: /\.js$|\.jsx$/, loader: 'babel', include: [path.resolve(__dirname, 'tests')] },
           { test: /\.json$/, loader: 'json' },
-          { test: /\.scss$/, loaders: ["style", "css", "sass"], include: [path.resolve(__dirname, 'src/sass')]},
-          { test: /\.svg$/, loader: 'file', include: [path.resolve(__dirname, 'src/images')] }
         ],
       },
 

@@ -61,6 +61,5 @@ A callback function when a user finished editing image by clicking `Done` button
 #TODO
 * improve zoom in/out
   * add slider
-  * keep center of image
 * add rotate function
 * add rgb-filter function
