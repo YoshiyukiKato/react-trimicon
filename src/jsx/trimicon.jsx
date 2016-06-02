@@ -6,6 +6,7 @@ const Editor = React.createClass({
   propTypes: {
     caption: React.PropTypes.shape({
       zoomRatio: React.PropTypes.string,
+      changeImage: React.PropTypes.string,
       done: React.PropTypes.string,
     }),
 
@@ -30,6 +31,7 @@ const Editor = React.createClass({
     return {
       caption: {
         zoomRatio: "Zoom Ratio",
+        changeImage: "Change Image",
         done: "Done",
       },
 
@@ -56,14 +58,13 @@ const Editor = React.createClass({
             <input type="number" value={this.state.imageSize} onChange={this.changeSize}/>
             <span> %</span>
           </div>
-  
           <div className="trimicon-trimer" onMouseDown={this.dragStart} onMouseMove={this.dragMove} onMouseUp={this.dragEnd}> 
             <img ref="target" src={this.state.imageSrc} style={ imageStyle }/>
             <canvas ref="mask" width={500} height={400}></canvas>
           </div>
           <div className="trimicon-action-panel">
             <input ref="file" type="file" onChange={this.loadImage} hidden/>
-            <button className="trimicon-button" onClick={this.selectImage}>Change Image</button>
+            <button className="trimicon-button" onClick={this.selectImage}>{ this.props.caption.changeImage }</button>
             <button className="trimicon-button" onClick={this.done}>{ this.props.caption.done }</button>
           </div>
         </div>
