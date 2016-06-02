@@ -55,9 +55,22 @@ ReactDOM.render(
 ```
 
 ##props
-###onSubmit(dataURL)
-A callback function when a user finished editing image by clicking `Done` button. This function will receive the result(square icon) as dataURL.
+###onSubmit
+`function(dataURL){ }`  
+The callback function will be invoked when a user finished editing image by clicking `Done` button. This function receives the result(square icon) as dataURL.
+
+###resultSize
+`number`  
+The length (px) of side (width and height) of the square icon. The default value is `512`.
+
+###caption
+`{ zoomRatio:string, changeImage:string, done:string }`  
+The captions for some controllers. The default value is `{ zoomRatio: "Zoom Ratio", changeImage: "Change Image", done: "Done" }`
+
 
 #TODO
 * add rgb-filter function
 * expand test cases
+
+#LICENSE
+MIT
