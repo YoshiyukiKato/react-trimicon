@@ -9,4 +9,9 @@ describe('editor', function () {
     let editor = TestUtils.renderIntoDocument(<Editor/>);
     assert(editor);
   });
+
+  it('without problems', function () {
+    let editor = TestUtils.renderIntoDocument(<Editor/>);
+    assert(editor);
+  });
 });
