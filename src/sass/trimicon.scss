@@ -18,6 +18,7 @@ $box-shadow: 0px 0px 3px rgba(200, 200, 200, 0.5);
   background-color: lightgray;
   border: solid 1px darkgray;
   color: black;
+  transition: all 0.2s;
   &:hover{
     background-color: darkgray;
     cursor: pointer;
@@ -94,6 +95,9 @@ $box-shadow: 0px 0px 3px rgba(200, 200, 200, 0.5);
 
 .trimicon-action-panel{
   border-top: $border;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .trimicon-close-editor{
