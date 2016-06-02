@@ -39,7 +39,12 @@ const Editor = React.createClass({
   },
 
   render: function(){
-    let imageStyle = { top: this.state.imageTop, left: this.state.imageLeft, width: this.state.imageSize + "%" };
+    let imageStyle = { 
+      top: this.state.imageTop, 
+      left: this.state.imageLeft, 
+      width: this.state.imageSize + "%",
+      transform: "rotate(" + this.state.imageRotate + "deg)"
+    };
     return (
       <div className={"trimicon-editor" + (this.state.isOpen ? " open" : "")}>
         <div className="trimicon-editor-area"> 
@@ -47,10 +52,12 @@ const Editor = React.createClass({
             <InlineSVG src={closeIconSrc}/>
           </div>
           <div className="trimicon-size-controller">
-            <span>{this.props.caption.zoomRatio} : </span>
+            <span>{this.props.caption.zoom}</span>
+            <input type="range" value={this.state.imageSize} onChange={this.changeSize} min={0} max={200}/>
             <input type="number" value={this.state.imageSize} onChange={this.changeSize}/>
             <span> %</span>
           </div>
+  
           <div className="trimicon-trimer" onMouseDown={this.dragStart} onMouseMove={this.dragMove} onMouseUp={this.dragEnd}> 
             <img ref="target" src={this.state.imageSrc} style={ imageStyle }/>
             <canvas ref="mask" width={500} height={400}></canvas>
@@ -108,6 +115,8 @@ const Editor = React.createClass({
 
   changeSize: function(evt){
     //change image size with keeping center
+    // cx = (250 - xa) / (a * W) = (250 - xb) / (b * W) <=> xb = (xa - 250) * (b / a) + 250 
+    // cy = (200 - ya) / (a * H) = (200 - yb) / (b * H) <=> yb = (ya - 200) * (b / a) + 200
     let currentSize = this.state.imageSize;
     let nextSize = evt.target.value * 1;
     let currentLeft = this.state.imageLeft;
