@@ -10,6 +10,8 @@ $ $(npm bin)/webpack-dev-server
 ```
 Then the server runs on `http://localhost:8080`.
 
+<img src="http://drive.google.com/uc?export=view&id=0B8DM9V01AvIyd1hLSTluUVpDeWc" width="50%"/>
+
 ##install
 ```shell
 $ npm install --save react-trimicon
