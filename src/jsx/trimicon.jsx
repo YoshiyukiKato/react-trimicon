@@ -13,7 +13,7 @@ const Editor = React.createClass({
     resultSize: React.PropTypes.number,
     requiredSize: React.PropTypes.number,
 
-    onSubmit: React.PropTypes.func
+    onSubmit: React.PropTypes.func.isRequired
   },
 
   getInitialState: function(){

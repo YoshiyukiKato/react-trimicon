@@ -4,14 +4,12 @@ import assert from 'power-assert';
 import { Editor } from '../dist/index.js'; 
 
 
-describe('editor', function () {
-  it('renders without problems', function () {
-    let editor = TestUtils.renderIntoDocument(<Editor/>);
-    assert(editor);
-  });
-
-  it('without problems', function () {
-    let editor = TestUtils.renderIntoDocument(<Editor/>);
-    assert(editor);
+describe('Editor', () => {
+  describe('props', () => {
+    it('renders without problems', () => {
+      function handleSubmit(){}
+      let editor = TestUtils.renderIntoDocument(<Editor onSubmit={handleSubmit}/>);
+      assert(editor);
+    });
   });
 });
