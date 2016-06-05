@@ -6,6 +6,10 @@
   "scripts": {
     "test": "karma start karma.conf.js"
   },
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/YoshiyukiKato/react-trimicon.git"
+  },
   "author": "Yoshiyuki Kato",
   "license": "MIT",
   "devDependencies": {

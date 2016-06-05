@@ -47,13 +47,13 @@ const baseConfig = {
 
 };
 
-const distConfig = Object.assign({
+const umdConfig = Object.assign({
   entry: {
-    index: ["./src/sass/trimicon.scss",  "./src/jsx/index.jsx"],
+    index: ["./src/sass/trimicon.scss",  "./src/jsx/umd_index.jsx"],
   },
  
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist/umd'),
     filename: '[name].js',
     libraryTarget: 'umd'
   },
@@ -73,19 +73,19 @@ const distConfig = Object.assign({
   ]
 }, baseConfig);
 
-const publicConfig = Object.assign({
+const webConfig = Object.assign({
   devServer: {
-    contentBase: "public"
+    contentBase: "dist/web"
   },
 
   entry: {
-    app: ["./src/sass/trimicon.scss",  "./src/jsx/app.jsx"],
+    index: ["./src/sass/trimicon.scss",  "./src/jsx/web_index.jsx"],
   },
 
   output: {
-    publicPath: '/public',
+    publicPath: '/',
     sourcePrefix: '',
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist/web'),
     filename: '[name].js',
   },
 
@@ -94,4 +94,4 @@ const publicConfig = Object.assign({
 }, baseConfig);
 
 
-module.exports = [publicConfig, distConfig];
+module.exports = [webConfig, umdConfig];

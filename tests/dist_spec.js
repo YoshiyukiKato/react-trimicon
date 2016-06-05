@@ -1,7 +1,7 @@
 import React from 'react';
 import * as TestUtils from 'react/lib/ReactTestUtils'; 
 import assert from 'power-assert';
-import { Editor } from '../dist/index.js'; 
+import { Editor } from '../dist/umd'; 
 
 
 describe('Editor', () => {
