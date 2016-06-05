@@ -1,3 +1,5 @@
+![CircleCI](https://circleci.com/gh/a-know/awesome_events.svg?style=shield&circle-token=17357171a86d687db543c46abdc5a966d1e63f48)
+[![Code Climate](https://codeclimate.com/github/YoshiyukiKato/react-trimicon/badges/gpa.svg)](https://codeclimate.com/github/YoshiyukiKato/react-trimicon)
 # react-trimicon
 react.js component to trim an image into a square icon
 
