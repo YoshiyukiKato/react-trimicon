@@ -1,6 +1,6 @@
 {
   "name": "react-trimicon",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "react.js component to trim an image into a square icon",
   "main": "index.js",
   "scripts": {
